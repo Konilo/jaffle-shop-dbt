@@ -11,9 +11,20 @@ sources:
           count: 1
           period: day
       loaded_at_field: _etl_loaded_at
+    
     tables:
       - name: customers
        # null excludes this table from freshness monitoring
         freshness: null
+        columns:
+          - name: id
+            data_tests:
+              - unique
+              - not_null
+              
       - name: orders
-        
+        columns:
+          - name: id
+            data_tests:
+              - unique
+              - not_null
