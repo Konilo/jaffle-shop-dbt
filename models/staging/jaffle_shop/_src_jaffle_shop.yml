@@ -2,6 +2,7 @@ sources:
   - name: jaffle_shop
     database: dbt-tutorial
     schema: jaffle_shop
+    description: A clone of a Postgres application database
     config:
       freshness:
         warn_after:
@@ -14,17 +15,21 @@ sources:
     
     tables:
       - name: customers
+        description: Raw customers data
        # null excludes this table from freshness monitoring
         freshness: null
         columns:
           - name: id
+            description: PK of the table
             data_tests:
               - unique
               - not_null
               
       - name: orders
+        description: Raw orders data
         columns:
           - name: id
+            description: PK of the table
             data_tests:
               - unique
               - not_null
